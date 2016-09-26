@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mrAndersonApp">
 <head>
     <title>Hello CORS</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="hello.js"></script>
+    <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
 </head>
 
 <body>
-<div>
-    <p class="greeting-id">The ID is </p>
-    <p class="greeting-content">The content is </p>
-</div>
+  <header>
+      <nav class="navbar navbar-default">
+        <a href="#" class="pull-left"><img src="resources/img/smith.png" height="80" width="80"></a>
+        <img class="pull-left" src="resources/img/text.png" height="60">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">MrAnderson</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+              <li><a ng-href="#/feed">Feed</a></li>
+              <li><a ng-href="#/music">My Music</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a ng-href="#/add">Add song</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div ng-view></div>
+    </div>
+
+<script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="resources/bower_components/angular/angular.js"></script>
+<script src="resources/bower_components/angular-route/angular-route.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/music.js"></script>
 </body>
 </html>
