@@ -3,6 +3,12 @@
      <tr ng-repeat = "song in songs">
        <td>{{song.author}}</td>
        <td>{{song.name}}</td>
+       <td>
+         <audio controls>
+           <source ng-src="{{ song.file | trusted }}" type="audio/mpeg">
+           Your browser does not support the audio element.
+         </audio>
+       </td>
      </tr>
    </tbody>
  </table>
