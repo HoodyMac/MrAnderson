@@ -11,16 +11,16 @@ public class Song {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String author;
-	private String name;
+	private String artist;
+	private String title;
 	private String token;
 
 	public Song() {
 	}
 
-	public Song(String author, String name, String token) {
-		this.author = author;
-		this.name = name;
+	public Song(String artist, String title, String token) {
+		this.artist = artist;
+		this.title = title;
 		this.token = token;
 	}
 
@@ -32,20 +32,20 @@ public class Song {
 		this.id = id;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getArtist() {
+		return artist;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getToken() {

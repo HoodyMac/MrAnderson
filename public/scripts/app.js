@@ -1,4 +1,4 @@
-var mrAnderson = angular.module('mrAndersonApp', ['ngRoute']);
+var mrAnderson = angular.module('mrAndersonApp', ['ngRoute', 'angularSoundManager']);
 
 mrAnderson.config(function($routeProvider) {
   $routeProvider.when('/music', {

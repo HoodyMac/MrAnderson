@@ -4,8 +4,8 @@ angular.module('mrAndersonApp').controller('AddSongCtrl', ['$scope', '$http', fu
   $scope.upload = function () {
     var fd = new FormData();
     fd.append('file', $scope.song.file);
-    fd.append('author', $scope.song.author);
-    fd.append('name', $scope.song.name);
+    fd.append('artist', $scope.song.artist);
+    fd.append('title', $scope.song.title);
     console.log($scope.song);
     $http.post('api/songs/upload', fd, {
       transformRequest: angular.identity,

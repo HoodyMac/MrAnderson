@@ -1,3 +1,23 @@
 .navbar-nav li a, .navbar-brand {
  line-height: 50px;
 }
+
+.seekBase {
+  height: 10px;
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding-top: 0px;
+}
+.seekLoad {
+	height: 10px;
+  width: 0;
+  background-color: #4469AD;
+}
+
+li {
+	cursor: pointer;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}

@@ -1,30 +1,28 @@
 package mranderson.dto;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class SongDTO {
 
-	private String author;
-	private String name;
+	private String artist;
+	private String title;
 
-	public SongDTO(String author, String name) {
-		this.author = author;
-		this.name = name;
+	public SongDTO(String artist, String title) {
+		this.artist = artist;
+		this.title = title;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getArtist() {
+		return artist;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

@@ -1,14 +1,22 @@
-  <table class="table table-hover">
-   <tbody>
-     <tr ng-repeat="song in songs">
-       <td>{{song.author}}</td>
-       <td>{{song.name}}</td>
-       <td>
-         <audio controls>
-           <source ng-src="{{ getSongUrl(song.token) | trusted }}" type="audio/mpeg">
-           Your browser does not support the audio element.
-         </audio>
-       </td>
-     </tr>
-   </tbody>
- </table>
+<div class="col-md-12">
+  <sound-manager></sound-manager>
+  <div class="seekBase" seek-track>
+    <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
+  </div>
+  <div>
+    <button prev-track>Prev Track</button>
+    <button play-pause-toggle data-play="Play" data-pause="Pause">Play</button>
+    <button next-track>Next Track</button>
+    {{ currentPlaying.artist }} - {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
+    <span class="pull-right">{{parseInt(currentDuration)}} - {{parseInt(currentPostion)}}</span>
+  </div>
+
+</div>
+<table class="table table-hover" play-all="songs">
+ <tbody>
+   <tr ng-repeat="song in songs" play-from-playlist="song">
+     <td>{{song.artist}}</td>
+     <td>{{song.title}}</td>
+   </tr>
+ </tbody>
+</table>

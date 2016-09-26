@@ -26,7 +26,7 @@ public class SongController {
 	}
 
 	@PostMapping("upload")
-	public void upload(@RequestParam("author") String author, @RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
-		songService.upload(new SongDTO(author, name), file);
+	public void upload(@RequestParam("artist") String artist, @RequestParam("title") String title, @RequestParam("file") MultipartFile file) {
+		songService.upload(new SongDTO(artist, title), file);
 	}
 }
