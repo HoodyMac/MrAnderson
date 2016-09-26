@@ -34,8 +34,9 @@ public class SongService {
 		if (token == null) {
 			return;
 		}
+		token = token + AndersonFileUtils.getMultipartFileExtension(file);
 		Song song = new Song(songDTO.getAuthor(), songDTO.getName(), token);
 		songRepository.save(song);
-		storageService.store(file, token + AndersonFileUtils.getMultipartFileExtension(file));
+		storageService.store(file, token);
 	}
 }
