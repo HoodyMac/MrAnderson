@@ -1,1 +1,20 @@
-{{ num + 1 }}
+<form>
+  <div class="form-group">
+    <label for="author">Song author:</label>
+    <input type="text" class="form-control" id="author" ng-model="song.author">
+  </div>
+  <div class="form-group">
+    <label for="name">Song name:</label>
+    <input type="text" class="form-control" id="name" ng-model="song.name">
+  </div>
+  <div class="form-group">
+    <label for="file">Song file:</label>
+    <input type="file" class="form-control" id="file" ng-model="song.file" accept="audio/*" app-filereader>
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="upload()">Upload</button>
+</form>
+
+<audio controls>
+  <source src="https://cs9-3v4.vk.me/p17/636d18417c0690.mp3?extra=sxtTuwRf9gYEIDvZPSsTt1Gy0c_vpYwK9BtoG5wqsP40mGQXyhLPKgdofIP7cn8bU2CSwGccp3bZVAuYtpOs_fp1SOY_74FntmmNjCnCLO62qnSreYVXzPpwcFjL1ukU7lSZONOfp_lC" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
