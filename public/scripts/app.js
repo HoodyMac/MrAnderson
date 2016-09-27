@@ -14,6 +14,12 @@ mrAnderson.config(function($routeProvider) {
   })
 })
 
+mrAnderson.run(function($rootScope, $location) {
+    $rootScope.search = function (text) {
+      $location.path('/music').search('search', text);
+    }
+});
+
 mrAnderson.filter('trusted', ['$sce', function ($sce) {
     return function(url) {
         return $sce.trustAsResourceUrl(url);

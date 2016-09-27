@@ -17,15 +17,16 @@ import mranderson.repository.SongRepository;
 @RestController
 @RequestMapping("api/")
 public class SearchController {
-	
+
 	@Autowired
 	private SongRepository songRepository;
 
-	@GetMapping("search")
-	public ResponseEntity<List<Song>> findByArtist(@PathVariable("artist") String artist) {
-		
-		List<Song> songs = songRepository.findByArtist(artist);
-		
+	@GetMapping("search/{search}")
+	public ResponseEntity<List<Song>> findByArtist(@PathVariable("search") String search) {
+
+
+		List<Song> songs = songRepository.findByArtist(search);
+
 		return new ResponseEntity<List<Song>>(songs, HttpStatus.OK);
 	}
 }

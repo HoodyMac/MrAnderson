@@ -21,9 +21,11 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#/">MrAnderson</a>
-            <span>
-              <input type="search" class="searchField" placeholder="Search"/>
-            </span>
+            <form ng-submit="search(searchText)">
+              <span>
+                <input type="search" class="searchField" placeholder="Search" ng-model="searchText"/>
+              </span>
+            </form>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
