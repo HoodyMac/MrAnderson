@@ -7,6 +7,8 @@ mrAnderson.config(function($routeProvider) {
   }).when('/add', {
     templateUrl: 'add.html',
     controller: 'AddSongCtrl'
+  }).when('/egg', {
+    templateUrl: 'egg.html'
   }).otherwise({
     redirectTo: '/music'
   })
