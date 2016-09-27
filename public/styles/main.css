@@ -21,3 +21,8 @@ li {
 .navbar {
   margin-bottom: 0px;
 }
+
+.searchField{
+  margin-top: 30px;
+  margin-right: 5px;
+}
