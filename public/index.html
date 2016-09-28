@@ -33,9 +33,19 @@
             <ul class="nav navbar-nav">
               <li><a ng-href="#/feed">Feed</a></li>
               <li><a ng-href="#/music">My Music</a></li>
+              <li>
+                <a>
+                  <sound-manager></sound-manager>
+                  <button prev-track><span class="glyphicon glyphicon-backward"></span></button>
+                  <button play-pause-toggle data-play="Play" data-pause="Pause">Play</button>
+                  <button next-track><span class="glyphicon glyphicon-forward"></button>
+                  {{ currentPlaying.artist }} - {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
+                </a>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a ng-href="#/add">Add song</a></li>
+              <!-- <li><a ng-href="#/add">Add song</a></li> -->
+              <li><a ng-click="addSong()">Add song</a></li>
             </ul>
           </div>
         </div>
@@ -50,7 +60,9 @@
 <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="resources/bower_components/angular/angular.js"></script>
 <script src="resources/bower_components/angular-route/angular-route.js"></script>
+<script src="resources/bower_components/angular-animate/angular-animate.js"></script>
 <script src="resources/bower_components/angular-soundmanager2/dist/angular-soundmanager2.min.js"></script>
+<script src="resources/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/music.js"></script>
 <script src="scripts/add.js"></script>

@@ -21,9 +21,9 @@ public class SongService {
 	@Autowired
 	private SongRepository songRepository;
 
-	public void upload(SongDTO songDTO, MultipartFile file) {
+	public Song upload(SongDTO songDTO, MultipartFile file) {
 		if (file == null) {
-			return;
+			return null;
 		}
 		String token = null;
 		try {
@@ -32,11 +32,11 @@ public class SongService {
 			e.printStackTrace();
 		}
 		if (token == null) {
-			return;
+			return null;
 		}
 		token = token + AndersonFileUtils.getMultipartFileExtension(file);
 		Song song = new Song(songDTO.getArtist(), songDTO.getTitle(), token);
-		songRepository.save(song);
 		storageService.store(file, token);
+		return songRepository.save(song);
 	}
 }

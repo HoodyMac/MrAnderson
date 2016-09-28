@@ -1,13 +1,6 @@
 <div class="col-md-12">
-  <sound-manager></sound-manager>
   <div class="seekBase" seek-track>
     <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
-  </div>
-  <div>
-    <button prev-track>Prev Track</button>
-    <button play-pause-toggle data-play="Play" data-pause="Pause">Play</button>
-    <button next-track>Next Track</button>
-    {{ currentPlaying.artist }} - {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
   </div>
 </div>
 <table class="table table-hover" play-all="songs">
