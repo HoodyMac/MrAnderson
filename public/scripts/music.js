@@ -7,7 +7,7 @@ angular.module('mrAndersonApp').controller('MusicCtrl', function($scope, $http, 
 
       for(var i=0; i<$scope.songs.length; i++) {
 
-        $scope.songs[i].url = "http://localhost:8080/api/files/" + $scope.songs[i].token;
+        $scope.songs[i].url = "/api/files/" + $scope.songs[i].token;
       }
     });
   } else {
@@ -15,7 +15,7 @@ angular.module('mrAndersonApp').controller('MusicCtrl', function($scope, $http, 
       $scope.songs = response.data;
       for(var i=0; i<$scope.songs.length; i++) {
 
-        $scope.songs[i].url = "http://localhost:8080/api/files/" + $scope.songs[i].token;
+        $scope.songs[i].url = "/api/files/" + $scope.songs[i].token;
       }
     });
   }
