@@ -36,3 +36,7 @@ form {
 [x-ng-click] {
     cursor: pointer;
 }
+
+.current-song {
+  background: #F0F0F0
+}
