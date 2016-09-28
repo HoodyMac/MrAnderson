@@ -30,4 +30,9 @@ public class SongController {
 		Song song = songService.upload(new SongDTO(artist, title), file);
 		return song;
 	}
+
+	@PutMapping("edit/{id}")
+	public Song edit(@RequestBody SongDTO songDTO, @PathVariable("id") Long id) {
+		return songService.edit(id, songDTO);
+	}
 }

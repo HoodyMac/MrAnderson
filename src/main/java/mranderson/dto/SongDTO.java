@@ -5,6 +5,9 @@ public class SongDTO {
 	private String artist;
 	private String title;
 
+	public SongDTO() {
+	}
+
 	public SongDTO(String artist, String title) {
 		this.artist = artist;
 		this.title = title;

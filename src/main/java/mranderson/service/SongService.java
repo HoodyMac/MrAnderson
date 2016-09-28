@@ -39,4 +39,10 @@ public class SongService {
 		storageService.store(file, token);
 		return songRepository.save(song);
 	}
+
+	public Song edit(Long id, SongDTO songDTO) {
+		Song song = songRepository.getOne(id);
+		song.update(songDTO);
+		return songRepository.save(song);
+	}
 }

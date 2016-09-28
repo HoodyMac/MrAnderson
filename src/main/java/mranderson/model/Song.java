@@ -1,5 +1,7 @@
 package mranderson.model;
 
+import mranderson.dto.SongDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,11 @@ public class Song {
 		this.artist = artist;
 		this.title = title;
 		this.token = token;
+	}
+
+	public void update(SongDTO songDTO) {
+		this.artist = songDTO.getArtist();
+		this.title = songDTO.getTitle();
 	}
 
 	public Long getId() {

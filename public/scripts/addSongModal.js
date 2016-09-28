@@ -1,4 +1,4 @@
-angular.module('mrAndersonApp').controller('AddSongCtrl', function($scope, $http, close) {
+angular.module('mrAndersonApp').controller('AddSongModalCtrl', function($scope, $http, close) {
   $scope.song = {};
   $scope.file = {};
 

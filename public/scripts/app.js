@@ -2,11 +2,8 @@ var mrAnderson = angular.module('mrAndersonApp', ['ngRoute', 'ngAnimate', 'angul
 
 mrAnderson.config(function($routeProvider) {
   $routeProvider.when('/music', {
-    templateUrl: 'music.html',
-    controller: 'MusicCtrl'
-  }).when('/add', {
-    templateUrl: 'add.html',
-    controller: 'AddSongCtrl'
+    templateUrl: 'myMusic.html',
+    controller: 'MyMusicCtrl'
   }).when('/egg', {
     templateUrl: 'egg.html'
   }).otherwise({
@@ -21,12 +18,14 @@ mrAnderson.run(function($rootScope, $location, ModalService) {
 
     $rootScope.addSong = function () {
       ModalService.showModal({
-        templateUrl: 'add.html',
-        controller: 'AddSongCtrl'
+        templateUrl: 'addSongModal.html',
+        controller: 'AddSongModalCtrl'
       }).then(function(modal) {
         modal.element.modal();
         modal.close.then(function(result) {
-          $rootScope.$emit('songAddedEvent', result);
+          if (angular.isDefined(result)) {
+            $rootScope.$emit('songAddedEvent', result);
+          }
         });
       });
     }

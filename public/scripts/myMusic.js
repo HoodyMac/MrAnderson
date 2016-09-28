@@ -1,4 +1,4 @@
-angular.module('mrAndersonApp').controller('MusicCtrl', function($scope, $http, $routeParams, $rootScope) {
+angular.module('mrAndersonApp').controller('MyMusicCtrl', function($scope, $http, $routeParams, $rootScope, ModalService) {
   $scope.songs = [];
   var search = $routeParams['search'];
   if (angular.isDefined(search) && search !== "") {
@@ -21,4 +21,30 @@ angular.module('mrAndersonApp').controller('MusicCtrl', function($scope, $http, 
     data.url = "/api/files/" + data.token
     $scope.songs.push(data);
   });
+
+  $scope.edit = function (song) {
+    ModalService.showModal({
+      templateUrl: 'editSongModal.html',
+      controller: 'EditSongModalCtrl',
+      inputs: {
+        song: jQuery.extend({}, song)
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function (result) {
+        if (angular.isDefined(result)) {
+          result.url = "/api/files/" + result.token;
+          song = result;
+        }
+      });
+    });
+  };
+
+  $scope.hoverIn = function() {
+    this.hoverEdit = true;
+  };
+
+  $scope.hoverOut = function() {
+    this.hoverEdit = false;
+  };
 });
