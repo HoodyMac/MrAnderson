@@ -1,10 +1,10 @@
-package mranderson.service;
+package mranderson.song.service;
 
-import mranderson.dto.SongDTO;
-import mranderson.model.Song;
-import mranderson.repository.SongRepository;
-import mranderson.repository.storage.StorageService;
-import mranderson.utils.AndersonFileUtils;
+import mranderson.song.dto.SongDTO;
+import mranderson.song.model.Song;
+import mranderson.song.repository.SongRepository;
+import mranderson.song.repository.storage.StorageService;
+import mranderson.song.utils.AndersonFileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;

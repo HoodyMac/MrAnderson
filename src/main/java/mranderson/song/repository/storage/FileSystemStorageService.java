@@ -1,4 +1,4 @@
-package mranderson.repository.storage;
+package mranderson.song.repository.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

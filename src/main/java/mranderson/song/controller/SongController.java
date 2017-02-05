@@ -1,9 +1,9 @@
-package mranderson.controller;
+package mranderson.song.controller;
 
-import mranderson.dto.SongDTO;
-import mranderson.model.Song;
-import mranderson.repository.SongRepository;
-import mranderson.service.SongService;
+import mranderson.song.dto.SongDTO;
+import mranderson.song.model.Song;
+import mranderson.song.repository.SongRepository;
+import mranderson.song.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

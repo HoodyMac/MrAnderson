@@ -1,4 +1,4 @@
-package mranderson.repository.storage;
+package mranderson.song.repository.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

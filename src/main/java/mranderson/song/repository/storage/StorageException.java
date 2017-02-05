@@ -1,4 +1,4 @@
-package mranderson.repository.storage;
+package mranderson.song.repository.storage;
 
 public class StorageException extends RuntimeException {
 

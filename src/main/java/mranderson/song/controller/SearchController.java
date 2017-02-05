@@ -1,4 +1,4 @@
-package mranderson.controller;
+package mranderson.song.controller;
 
 
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mranderson.model.Song;
-import mranderson.repository.SongRepository;
+import mranderson.song.model.Song;
+import mranderson.song.repository.SongRepository;
 
 @RestController
 @RequestMapping("api/")

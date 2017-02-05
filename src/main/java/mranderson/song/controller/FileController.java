@@ -1,6 +1,6 @@
-package mranderson.controller;
+package mranderson.song.controller;
 
-import mranderson.repository.storage.StorageService;
+import mranderson.song.repository.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

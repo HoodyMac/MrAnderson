@@ -1,6 +1,6 @@
-package mranderson.model;
+package mranderson.song.model;
 
-import mranderson.dto.SongDTO;
+import mranderson.song.dto.SongDTO;
 
 import javax.persistence.*;
 

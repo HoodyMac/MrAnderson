@@ -1,4 +1,4 @@
-package mranderson.dto;
+package mranderson.song.dto;
 
 public class SongDTO {
 
