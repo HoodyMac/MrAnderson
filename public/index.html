@@ -1,71 +1,33 @@
 <!DOCTYPE html>
 <html ng-app="mrAndersonApp" ng-cloak>
 <head>
-    <title>Hello CORS</title>
-    <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Hello CORS</title>
+  <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles/main.css" rel="stylesheet">
 </head>
 
 <body>
   <header>
-      <nav class="navbar navbar-default">
-        <a href="#/egg" class="pull-left">
-          <img src="resources/img/smith.png" height="80" width="80">
-        </a>
-        <img class="pull-left" src="resources/img/text.png" height="60">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/">MrAnderson</a>
-            <form ng-submit="search(searchText)">
-              <span>
-                <input type="search" class="searchField" placeholder="Search" ng-model="searchText"/>
-              </span>
-            </form>
-          </div>
+    <div ng-include src="'menu.html'"></div>
+  </header>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+  <div class="container">
+    <div ng-view></div>
+  </div>
 
-            <ul class="nav navbar-nav">
-              <li><a ng-href="#/feed">Feed</a></li>
-              <li><a ng-href="#/music">My Music</a></li>
-              <li>
-                <a>
-                  <sound-manager></sound-manager>
-                  <button prev-track><span class="glyphicon glyphicon-backward"></span></button>
-                  <button play-pause-toggle data-play="Play" data-pause="Pause">Play</button>
-                  <button next-track><span class="glyphicon glyphicon-forward"></button>
-                  {{ currentPlaying.artist }} - {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
-                </a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a ng-click="addSong()">Add song</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="container">
-      <div ng-view></div>
-    </div>
-
-<link href="styles/main.css" rel="stylesheet">
-<script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="resources/bower_components/angular/angular.js"></script>
-<script src="resources/bower_components/angular-route/angular-route.js"></script>
-<script src="resources/bower_components/angular-animate/angular-animate.js"></script>
-<script src="resources/bower_components/angular-soundmanager2/dist/angular-soundmanager2.min.js"></script>
-<script src="resources/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
-<script src="scripts/app.js"></script>
-<script src="scripts/myMusic.js"></script>
-<script src="scripts/addSongModal.js"></script>
-<script src="scripts/editSongModal.js"></script>
-<script src="scripts/common/filemodel.js"></script>
+  <script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="resources/bower_components/angular/angular.js"></script>
+  <script src="resources/bower_components/angular-route/angular-route.js"></script>
+  <script src="resources/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="resources/bower_components/angular-soundmanager2/dist/angular-soundmanager2.min.js"></script>
+  <script src="resources/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/myMusic.js"></script>
+  <script src="scripts/addSongModal.js"></script>
+  <script src="scripts/editSongModal.js"></script>
+  <script src="scripts/signUpModal.js"></script>
+  <script src="scripts/logInModal.js"></script>
+  <script src="scripts/common/filemodel.js"></script>
 </body>
 </html>
