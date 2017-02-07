@@ -1,4 +1,4 @@
-angular.module('mrAndersonApp').controller('LogInModalCtrl', function($scope, $http, close) {
+angular.module('mrAndersonApp').controller('LogInModalCtrl', function ($scope, $http, close) {
     $scope.user = {};
 
     $scope.logIn = function () {

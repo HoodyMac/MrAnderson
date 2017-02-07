@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html ng-app="mrAndersonApp" ng-cloak>
 <head>
-  <title>Hello CORS</title>
-  <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles/main.css" rel="stylesheet">
+    <title>Hello CORS</title>
+    <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
 </head>
 
 <body>
-  <sound-manager></sound-manager>
-  <header>
+<sound-manager></sound-manager>
+<header>
     <div ng-include src="'menu.html'"></div>
-  </header>
-  <div class="col-md-12">
+</header>
+<div class="col-md-12">
     <div class="seekBase" seek-track>
-      <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
+        <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
     </div>
-  </div>
-  <div class="container">
+</div>
+<div class="container">
     <div ng-view></div>
-  </div>
+</div>
 
-  <script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="resources/bower_components/angular/angular.js"></script>
-  <script src="resources/bower_components/angular-route/angular-route.js"></script>
-  <script src="resources/bower_components/angular-animate/angular-animate.js"></script>
-  <script src="resources/bower_components/angular-soundmanager2/dist/angular-soundmanager2.min.js"></script>
-  <script src="resources/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
-  <script src="scripts/app.js"></script>
-  <script src="scripts/myMusic.js"></script>
-  <script src="scripts/addSongModal.js"></script>
-  <script src="scripts/editSongModal.js"></script>
-  <script src="scripts/signUpModal.js"></script>
-  <script src="scripts/logInModal.js"></script>
-  <script src="scripts/common/filemodel.js"></script>
+<script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="resources/bower_components/angular/angular.js"></script>
+<script src="resources/bower_components/angular-route/angular-route.js"></script>
+<script src="resources/bower_components/angular-animate/angular-animate.js"></script>
+<script src="resources/bower_components/angular-soundmanager2/dist/angular-soundmanager2.min.js"></script>
+<script src="resources/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/myMusic.js"></script>
+<script src="scripts/addSongModal.js"></script>
+<script src="scripts/editSongModal.js"></script>
+<script src="scripts/signUpModal.js"></script>
+<script src="scripts/logInModal.js"></script>
+<script src="scripts/common/filemodel.js"></script>
 </body>
 </html>

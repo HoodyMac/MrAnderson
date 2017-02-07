@@ -1,34 +1,35 @@
 .navbar-nav li a, .navbar-brand {
- line-height: 50px;
+    line-height: 50px;
 }
 
 .seekBase {
-  height: 10px;
-  width: 100%;
-  border: 1px solid #cccccc;
-  padding-top: 0px;
+    height: 10px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding-top: 0px;
 }
+
 .seekLoad {
-	height: 10px;
-  width: 0;
-  background-color: #4469AD;
+    height: 10px;
+    width: 0;
+    background-color: #4469AD;
 }
 
 li {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .navbar {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
-.searchField{
-  margin-top: 30px;
-  margin-right: 5px;
+.searchField {
+    margin-top: 30px;
+    margin-right: 5px;
 }
 
 form {
-  display: inline;
+    display: inline;
 }
 
 [ng-click],
@@ -38,5 +39,5 @@ form {
 }
 
 .current-song {
-  background: #F0F0F0
+    background: #F0F0F0
 }

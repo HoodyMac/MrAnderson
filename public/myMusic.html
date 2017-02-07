@@ -1,14 +1,13 @@
-<div class="col-md-12">
-
-</div>
 <table class="table table-hover" play-all="songs">
- <tbody>
-   <tr ng-repeat="song in songs" play-from-playlist="song" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ng-class="{'current-song': currentPlaying.id == song.id}">
-     <td class="col-md-5">
-         <a ng-click="$event.stopPropagation(); search(song.artist)">{{song.artist}}</a>
-     </td>
-     <td class="col-md-5">{{song.title}}</td>
-     <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="$event.stopPropagation(); edit(song)" ng-show="hoverEdit"></span></td>
-   </tr>
- </tbody>
+    <tbody>
+    <tr ng-repeat="song in songs" play-from-playlist="song" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()"
+        ng-class="{'current-song': currentPlaying.id == song.id}">
+        <td class="col-md-5">
+            <a ng-click="$event.stopPropagation(); search(song.artist)">{{song.artist}}</a>
+        </td>
+        <td class="col-md-5">{{song.title}}</td>
+        <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="$event.stopPropagation(); edit(song)"
+                  ng-show="hoverEdit"></span></td>
+    </tr>
+    </tbody>
 </table>

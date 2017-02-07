@@ -1,4 +1,4 @@
-angular.module('mrAndersonApp').controller('SignUpModalCtrl', function($scope, $http, close) {
+angular.module('mrAndersonApp').controller('SignUpModalCtrl', function ($scope, $http, close) {
     $scope.user = {};
 
     $scope.signUp = function () {

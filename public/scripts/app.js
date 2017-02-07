@@ -1,19 +1,19 @@
 var mrAnderson = angular.module('mrAndersonApp', ['ngRoute', 'ngAnimate', 'angularSoundManager', 'angularModalService']);
 
-mrAnderson.config(function($routeProvider, $httpProvider) {
-  $routeProvider.when('/music', {
-    templateUrl: 'myMusic.html',
-    controller: 'MyMusicCtrl'
-  }).when('/egg', {
-    templateUrl: 'egg.html'
-  }).otherwise({
-    redirectTo: '/music'
-  });
+mrAnderson.config(function ($routeProvider, $httpProvider) {
+    $routeProvider.when('/music', {
+        templateUrl: 'myMusic.html',
+        controller: 'MyMusicCtrl'
+    }).when('/egg', {
+        templateUrl: 'egg.html'
+    }).otherwise({
+        redirectTo: '/music'
+    });
 
-  $httpProvider.interceptors.push('httpRequestInterceptor');
+    $httpProvider.interceptors.push('httpRequestInterceptor');
 });
 
-mrAnderson.run(function($rootScope, $location, ModalService, $http) {
+mrAnderson.run(function ($rootScope, $location, ModalService, $http) {
     $rootScope.searchText = '';
     $rootScope.me = {};
     $rootScope.isSignedIn = false;
@@ -21,31 +21,31 @@ mrAnderson.run(function($rootScope, $location, ModalService, $http) {
     getUser();
 
     $rootScope.search = function (text) {
-      $rootScope.searchText = text;
-      $location.path('/music').search('search', text);
+        $rootScope.searchText = text;
+        $location.path('/music').search('search', text);
     };
 
     $rootScope.addSong = function () {
-      ModalService.showModal({
-        templateUrl: 'addSongModal.html',
-        controller: 'AddSongModalCtrl'
-      }).then(function(modal) {
-        modal.element.modal();
-        modal.close.then(function(result) {
-          if (angular.isDefined(result)) {
-            $rootScope.$emit('songAddedEvent', result);
-          }
+        ModalService.showModal({
+            templateUrl: 'addSongModal.html',
+            controller: 'AddSongModalCtrl'
+        }).then(function (modal) {
+            modal.element.modal();
+            modal.close.then(function (result) {
+                if (angular.isDefined(result)) {
+                    $rootScope.$emit('songAddedEvent', result);
+                }
+            });
         });
-      });
     };
 
     $rootScope.signUp = function () {
         ModalService.showModal({
             templateUrl: 'signUpModal.html',
             controller: 'SignUpModalCtrl'
-        }).then(function(modal) {
+        }).then(function (modal) {
             modal.element.modal();
-            modal.close.then(function(result) {
+            modal.close.then(function (result) {
                 getUser();
             });
         });
@@ -55,9 +55,9 @@ mrAnderson.run(function($rootScope, $location, ModalService, $http) {
         ModalService.showModal({
             templateUrl: 'logInModal.html',
             controller: 'LogInModalCtrl'
-        }).then(function(modal) {
+        }).then(function (modal) {
             modal.element.modal();
-            modal.close.then(function(result) {
+            modal.close.then(function (result) {
                 getUser();
             });
         });
@@ -69,13 +69,13 @@ mrAnderson.run(function($rootScope, $location, ModalService, $http) {
     };
 
     function getUser() {
-        if(localStorage.getItem('jwt') === null) {
+        if (localStorage.getItem('jwt') === null) {
             return;
         }
         $http.get('api/users/me').then(function (response) {
             $rootScope.me = response.data;
             $rootScope.isSignedIn = true;
-        }, function(response) {
+        }, function (response) {
             localStorage.removeItem('jwt');
             $rootScope.isSignedIn = false;
         })
@@ -83,7 +83,7 @@ mrAnderson.run(function($rootScope, $location, ModalService, $http) {
 });
 
 mrAnderson.filter('trusted', ['$sce', function ($sce) {
-    return function(url) {
+    return function (url) {
         return $sce.trustAsResourceUrl(url);
     };
 }]);
@@ -92,7 +92,7 @@ mrAnderson.factory('httpRequestInterceptor', function () {
     return {
         request: function (config) {
             var token = localStorage.getItem('jwt');
-            if(token === null) {
+            if (token === null) {
                 token = '';
             }
             config.headers['x-auth-token'] = token;
