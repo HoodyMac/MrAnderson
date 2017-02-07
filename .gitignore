@@ -4,5 +4,6 @@
 .classpath
 .project
 /public/resources/bower_components
+/public/resources/key.json
 /upload-dir
 /*.iml

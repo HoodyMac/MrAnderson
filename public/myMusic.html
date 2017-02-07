@@ -6,8 +6,12 @@
             <a ng-click="$event.stopPropagation(); search(song.artist)">{{song.artist}}</a>
         </td>
         <td class="col-md-5">{{song.title}}</td>
-        <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="$event.stopPropagation(); edit(song)"
-                  ng-show="hoverEdit"></span></td>
+        <td>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="$event.stopPropagation(); edit(song)"
+                  ng-show="hoverEdit"></span>
+            <span class="glyphicon glyphicon-subtitles" aria-hidden="true" ng-click="$event.stopPropagation(); showLyrics(song)"
+                  ng-show="hoverEdit"></span>
+        </td>
     </tr>
     </tbody>
 </table>

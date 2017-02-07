@@ -40,6 +40,24 @@ angular.module('mrAndersonApp').controller('MyMusicCtrl', function($scope, $http
     });
   };
 
+  $scope.showLyrics = function (song) {
+      $http.get('../resources/key.json').then(function (response) {
+        var apiKey = response.data.key;
+        $http.jsonp('https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=JSON_CALLBACK&q_track=' +  song.title + '&q_artist=' + song.artist + '&apikey=' + apiKey, {jsonpCallbackParam: 'callback'}).then(function (responseLyrics) {
+            // alert(responseLyrics.data.message.body.lyrics.lyrics_body);
+            ModalService.showModal({
+                templateUrl: 'lyricsModal.html',
+                controller: 'lyricsModalCtrl',
+                inputs: {
+                    lyrics: responseLyrics.data.message.body.lyrics.lyrics_body
+                }
+            }).then(function(modal) {
+                modal.element.modal();
+            });
+        })
+      });
+  };
+
   $scope.hoverIn = function() {
     this.hoverEdit = true;
   };
