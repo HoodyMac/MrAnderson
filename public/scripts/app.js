@@ -14,12 +14,14 @@ mrAnderson.config(function($routeProvider, $httpProvider) {
 });
 
 mrAnderson.run(function($rootScope, $location, ModalService, $http) {
+    $rootScope.searchText = '';
     $rootScope.me = {};
     $rootScope.isSignedIn = false;
 
     getUser();
 
     $rootScope.search = function (text) {
+      $rootScope.searchText = text;
       $location.path('/music').search('search', text);
     };
 
