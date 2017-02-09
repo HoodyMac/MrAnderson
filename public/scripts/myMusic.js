@@ -40,6 +40,13 @@ angular.module('mrAndersonApp').controller('MyMusicCtrl', function($scope, $http
     });
   };
 
+   $scope.delete = function(song){
+                                   $http.delete('api/songs/delete/' + song.id).then(function(response){
+                                  var index = $scope.songs.indexOf(song);
+                                  $scope.songs.splice(index, 1);
+                                   })
+                              };
+
   $scope.showLyrics = function (song) {
       $http.get('../resources/key.json').then(function (response) {
         var apiKey = response.data.key;
