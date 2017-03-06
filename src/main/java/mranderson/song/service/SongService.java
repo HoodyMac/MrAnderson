@@ -1,5 +1,6 @@
 package mranderson.song.service;
 
+import mranderson.security.service.SecurityContextService;
 import mranderson.song.model.SongDTO;
 import mranderson.song.domain.Song;
 import mranderson.song.repository.SongRepository;
@@ -21,6 +22,9 @@ public class SongService {
 	@Autowired
 	private SongRepository songRepository;
 
+	@Autowired
+	private SecurityContextService securityContextService;
+
 	public Song upload(SongDTO songDTO, MultipartFile file) {
 		if (file == null) {
 			return null;
@@ -35,7 +39,7 @@ public class SongService {
 			return null;
 		}
 		token = token + AndersonFileUtils.getMultipartFileExtension(file);
-		Song song = new Song(songDTO.getArtist(), songDTO.getTitle(), token);
+		Song song = new Song(songDTO.getArtist(), songDTO.getTitle(), token, securityContextService.currentUserAccount());
 		storageService.store(file, token);
 		return songRepository.save(song);
 	}

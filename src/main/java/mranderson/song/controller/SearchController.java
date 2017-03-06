@@ -25,7 +25,7 @@ public class SearchController {
 	public ResponseEntity<List<Song>> findByArtist(@PathVariable("search") String search) {
 
 
-		List<Song> songs = songRepository.findByArtist(search);
+		List<Song> songs = songRepository.search(search);
 
 		return new ResponseEntity<List<Song>>(songs, HttpStatus.OK);
 	}

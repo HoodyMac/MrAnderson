@@ -1,5 +1,6 @@
 package mranderson.song.controller;
 
+import mranderson.security.service.SecurityContextService;
 import mranderson.song.model.SongDTO;
 import mranderson.song.domain.Song;
 import mranderson.song.repository.SongRepository;
@@ -24,9 +25,12 @@ public class SongController {
 	@Autowired
 	private StorageService storageService;
 
+	@Autowired
+	private SecurityContextService securityContextService;
+
 	@GetMapping("all")
 	public List<Song> get() {
-		return songRepository.findAll();
+		return songRepository.findByUploaderId(securityContextService.currentUserAccount().getId());
 	}
 
 	@PostMapping("upload")
@@ -46,7 +50,7 @@ public class SongController {
 		Song song = songRepository.findOne(id);
 		songRepository.delete(id);
 		List<Song> songs = songRepository.findByToken(song.getToken());
-		if(songs != null || songs.isEmpty()) {
+		if(songs == null || songs.isEmpty()) {
 			storageService.delete(song.getToken());
 		}
 
