@@ -2,10 +2,10 @@ var mrAnderson = angular.module('mrAndersonApp', ['ngRoute', 'ngAnimate', 'angul
 
 mrAnderson.config(function ($routeProvider, $httpProvider) {
     $routeProvider.when('/music', {
-        templateUrl: 'myMusic.html',
+        templateUrl: 'views/music.html',
         controller: 'MyMusicCtrl'
     }).when('/egg', {
-        templateUrl: 'egg.html'
+        templateUrl: 'views/egg.html'
     }).otherwise({
         redirectTo: '/music'
     });
@@ -27,7 +27,7 @@ mrAnderson.run(function ($rootScope, $location, ModalService, $http) {
 
     $rootScope.addSong = function () {
         ModalService.showModal({
-            templateUrl: 'addSongModal.html',
+            templateUrl: 'views/addSongModal.html',
             controller: 'AddSongModalCtrl'
         }).then(function (modal) {
             modal.element.modal();
@@ -41,7 +41,7 @@ mrAnderson.run(function ($rootScope, $location, ModalService, $http) {
 
     $rootScope.signUp = function () {
         ModalService.showModal({
-            templateUrl: 'signUpModal.html',
+            templateUrl: 'views/signUpModal.html',
             controller: 'SignUpModalCtrl'
         }).then(function (modal) {
             modal.element.modal();
@@ -53,7 +53,7 @@ mrAnderson.run(function ($rootScope, $location, ModalService, $http) {
 
     $rootScope.logIn = function () {
         ModalService.showModal({
-            templateUrl: 'logInModal.html',
+            templateUrl: 'views/logInModal.html',
             controller: 'LogInModalCtrl'
         }).then(function (modal) {
             modal.element.modal();
