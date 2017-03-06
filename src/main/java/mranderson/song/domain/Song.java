@@ -4,6 +4,7 @@ import mranderson.song.model.SongDTO;
 import mranderson.user.domain.UserAccount;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Song {
@@ -14,9 +15,13 @@ public class Song {
 	private String artist;
 	private String title;
 	private String token;
+
 	@ManyToOne
 	@JoinColumn(name = "uploader_id")
 	private UserAccount uploader;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_at;
 
 	public Song() {
 	}
@@ -26,6 +31,7 @@ public class Song {
 		this.title = title;
 		this.token = token;
 		this.uploader = uploader;
+		this.created_at = new Date();
 	}
 
 	public void update(SongDTO songDTO) {
@@ -71,5 +77,13 @@ public class Song {
 
 	public void setUploader(UserAccount uploader) {
 		this.uploader = uploader;
+	}
+
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 }
