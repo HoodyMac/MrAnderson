@@ -1,4 +1,4 @@
-package mranderson.song.dto;
+package mranderson.song.model;
 
 public class SongDTO {
 

@@ -1,6 +1,6 @@
-package mranderson.song.model;
+package mranderson.song.domain;
 
-import mranderson.song.dto.SongDTO;
+import mranderson.song.model.SongDTO;
 
 import javax.persistence.*;
 

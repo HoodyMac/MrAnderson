@@ -1,7 +1,7 @@
 package mranderson.song.controller;
 
-import mranderson.song.dto.SongDTO;
-import mranderson.song.model.Song;
+import mranderson.song.model.SongDTO;
+import mranderson.song.domain.Song;
 import mranderson.song.repository.SongRepository;
 import mranderson.song.repository.storage.StorageService;
 import mranderson.song.service.SongService;
