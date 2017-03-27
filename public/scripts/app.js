@@ -6,7 +6,11 @@ mrAnderson.config(function ($routeProvider, $httpProvider) {
         controller: 'MyMusicCtrl'
     }).when('/egg', {
         templateUrl: 'views/egg.html'
-    }).otherwise({
+    }).when('/users', {
+        templateUrl: 'views/UserList.html',
+        controller: 'UserCtrl'
+    })
+    .otherwise({
         redirectTo: '/music'
     });
 

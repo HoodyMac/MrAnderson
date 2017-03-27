@@ -1,0 +1,17 @@
+<table class="table table-hover" ng-controller="UserCtrl">
+    <thead>
+    <tr>
+        <th>User name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users" ng-if="user.username != me.username">
+        <td>{{user.username}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" ng-click="follow(user.id)">
+                Follow
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

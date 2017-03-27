@@ -1,5 +1,6 @@
 angular.module('mrAndersonApp').controller('MyMusicCtrl', function($scope, $http, $routeParams, $rootScope, ModalService) {
   $scope.songs = [];
+
   var search = $routeParams['search'];
   if (angular.isDefined(search) && search !== "") {
       $http.get('api/search/' + search).then(function (response) {
