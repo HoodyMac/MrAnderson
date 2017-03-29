@@ -1,5 +1,7 @@
 package mranderson.user.controller;
 
+import mranderson.song.domain.Song;
+import mranderson.song.repository.SongRepository;
 import mranderson.user.domain.UserAccount;
 import mranderson.user.model.UserDTO;
 import mranderson.user.model.UserParams;
@@ -14,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,6 +31,9 @@ public class UserController {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private SongRepository songRepository;
 
     @RequestMapping(method = RequestMethod.POST)
     public UserAccount create(@Valid @RequestBody UserParams params) {
@@ -44,26 +50,23 @@ public class UserController {
     }
 
     @GetMapping("allUsers")
-    public List<UserAccount> getUsers()
-    {
+    public List<UserAccount> getUsers() {
         return userRepository.findAll();
     }
 
     @PostMapping("follow/{id}")
-    public List<UserAccount> follow(@PathVariable("id") Long id){
+    public List<UserAccount> follow(@PathVariable("id") Long id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = auth.getName();
 
         UserAccount currentUser = userRepository.findByUsername(currentUserName);
         UserAccount user = userRepository.findOne(id);
 
-        if(currentUser.getId() == user.getId())
-        {
+        if (currentUser.getId() == user.getId()) {
             throw new RuntimeException();
         }
 
-        if(userRepo.findFollowing(currentUser.getId(), user.getId()))
-        {
+        if (userRepo.findFollowing(currentUser.getId(), user.getId())) {
             throw new RuntimeException();
         }
 
@@ -72,5 +75,22 @@ public class UserController {
 
         return userRepository.save(followings);
 
+    }
+
+    @GetMapping("feed")
+    public List<Song> getMusic() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = auth.getName();
+        UserAccount user = userRepository.findByUsername(currentUserName);
+
+        List<UserAccount> iFollow = user.getFollowings();
+        List<Song> songs = new ArrayList<>();
+
+        for(int i = 0; i < iFollow.size(); i++)
+        {
+            songs.addAll(songRepository.findByUploaderId(iFollow.get(i).getId()));
+        }
+
+        return songs;
     }
 }
