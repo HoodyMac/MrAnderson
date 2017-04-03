@@ -61,17 +61,17 @@ public class UserController {
 
         UserAccount currentUser = userRepository.findByUsername(currentUserName);
         UserAccount user = userRepository.findOne(id);
+        List<UserAccount> followings = currentUser.getFollowings();
 
         if (currentUser.getId() == user.getId()) {
             throw new RuntimeException();
         }
 
-        if (userRepo.findFollowing(currentUser.getId(), user.getId())) {
-            throw new RuntimeException();
+        if (followings.contains(user)) {
+            followings.remove(user);
         }
-
-        List<UserAccount> followings = currentUser.getFollowings();
-        followings.add(user);
+        else
+            followings.add(user);
 
         return userRepository.save(followings);
 
