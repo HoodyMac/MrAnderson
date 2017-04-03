@@ -72,9 +72,10 @@ public class UserController {
             followings.remove(user);
             followers.remove(currentUser);
         }
-        else
+        else {
             followings.add(user);
             followers.add(currentUser);
+        }
         return userRepository.save(followings);
 
     }
