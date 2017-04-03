@@ -29,11 +29,27 @@ public class UserAccount implements UserDetails {
 
     @ManyToMany
     @JoinTable(
-            name="Followers",
+            name="Followings",
             joinColumns=@JoinColumn(name="follower", referencedColumnName="ID"),
             inverseJoinColumns=@JoinColumn(name="following", referencedColumnName="ID"))
     @JsonIgnore
     private List<UserAccount> followings;
+
+    @ManyToMany
+    @JoinTable(
+            name="Followers",
+            joinColumns=@JoinColumn(name="follower", referencedColumnName="ID"),
+            inverseJoinColumns=@JoinColumn(name="following", referencedColumnName="ID"))
+    @JsonIgnore
+    private List<UserAccount> followers;
+
+    public List<UserAccount> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<UserAccount> followers) {
+        this.followers = followers;
+    }
 
     public List<UserAccount> getFollowings() {
         return followings;

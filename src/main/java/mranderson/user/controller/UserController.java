@@ -62,6 +62,7 @@ public class UserController {
         UserAccount currentUser = userRepository.findByUsername(currentUserName);
         UserAccount user = userRepository.findOne(id);
         List<UserAccount> followings = currentUser.getFollowings();
+        List<UserAccount> followers = user.getFollowers();
 
         if (currentUser.getId() == user.getId()) {
             throw new RuntimeException();
@@ -69,10 +70,11 @@ public class UserController {
 
         if (followings.contains(user)) {
             followings.remove(user);
+            followers.remove(currentUser);
         }
         else
             followings.add(user);
-
+            followers.add(currentUser);
         return userRepository.save(followings);
 
     }
